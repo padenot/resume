@@ -1,0 +1,68 @@
+%
+%             DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+%                     Version 2, December 2004
+% 
+%  Copyright (C) 2004 Sam Hocevar <sam@hocevar.net>
+% 
+%  Everyone is permitted to copy and distribute verbatim or modified
+%  copies of this license document, and changing it is allowed as long
+%  as the name is changed.
+% 
+%             DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE
+%    TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+% 
+%   0. You just DO WHAT THE FUCK YOU WANT TO. 
+%
+%   Author : Paul ADENOT
+%   Date : 17/10/10 
+
+
+\documentclass[a4paper, 10pt]{report}
+
+\usepackage[frenchb]{babel}
+\usepackage[top=15mm, bottom=15mm, left=30mm, right=30mm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{setspace}
+\usepackage{sectsty}
+
+\renewcommand*\familydefault{\sfdefault}
+
+\setlength{\parindent}{0pt}
+
+\newcommand{\fontrubrique}[1]{%
+    \textsf{\Large{\textbf{#1}}}
+}
+
+\newlength{\largeurtitre}
+\newlength{\largeurligne}
+\newcommand{\rubrique}[1]{%
+    \setlength{\largeurtitre}{0pt}
+    \setlength{\largeurligne}{0pt}
+    \settowidth{\largeurtitre}{\fontrubrique{#1}}
+    \addtolength{\largeurligne}{\textwidth}
+    \addtolength{\largeurligne}{-\largeurtitre}
+    \addtolength{\largeurligne}{-4pt}
+    \bigskip
+    \fontrubrique{#1} \raisebox{0.3em}{\vrule depth 0pt height 0.6pt width \largeurligne}
+}
+
+\newcommand{\titrecadre}[1]{%
+    \newlength{\largeurboite}
+    \setlength{\largeurboite}{\textwidth}
+    \addtolength{\largeurboite}{6cm}
+    \hspace{-32mm}
+    \begin{minipage}{21cm}
+	\fcolorbox{gray}{lightgray}{%
+	    \begin{minipage}{\largeurboite}
+		\begin{center}
+		    \huge{#1}
+		\end{center}
+	    \end{minipage}
+	}
+    \end{minipage}
+}
+
